@@ -14,8 +14,11 @@ export const getCodeFromAst = (
     nodes: Statement[],
     originalCode: string,
     interpreter?: InterpreterDirective | null,
+    allowComments?: boolean,
 ) => {
-    const allCommentsFromImports = getAllCommentsFromNodes(nodes);
+    const allCommentsFromImports = allowComments
+        ? []
+        : getAllCommentsFromNodes(nodes);
 
     const nodesToRemoveFromCode = [
         ...nodes,

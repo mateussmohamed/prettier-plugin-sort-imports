@@ -13,6 +13,7 @@ export function preprocessor(code: string, options: PrettierOptions) {
         importOrderSeparation,
         parser: prettierParser,
         experimentalBabelParserPluginsList = [],
+        allowComments = false,
     } = options;
 
     const plugins = getParserPlugins(prettierParser);
@@ -47,5 +48,5 @@ export function preprocessor(code: string, options: PrettierOptions) {
         importOrderSeparation,
     );
 
-    return getCodeFromAst(allImports, code, interpreter);
+    return getCodeFromAst(allImports, code, interpreter, allowComments);
 }

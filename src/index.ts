@@ -23,7 +23,13 @@ const options = {
         array: true,
         default: [{ value: [] }],
         description: 'Provide a list of plugins for special syntax',
-    }
+    },
+    allowComments: {
+        type: 'boolean',
+        category: 'Global',
+        default: false,
+        description: 'Allow comments in imports blocks.',
+    },
 };
 
 module.exports = {
